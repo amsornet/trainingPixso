@@ -56,6 +56,7 @@ body {
   justify-content: center;
   gap: 67px;
   flex-wrap: wrap;
+  flex: 0 0 auto;
   margin-bottom: 142px;
 }
 
@@ -201,7 +202,7 @@ body {
       rgba(255, 227, 154, 0.93) 1.923%,
       rgba(255, 159, 90, 0) 68.245%
     ),
-    url(../images/blog/001.png);
+    url(../../images/blog/01.png) center / contain no-repeat;
 }
 
 .image-2 {
@@ -216,7 +217,7 @@ body {
       rgba(255, 53, 53, 0.48) 14.04%,
       rgba(255, 179, 90, 0) 68.007%
     ),
-    url(../images/blog/002.png);
+    url(../../images/blog/02.png) center / contain no-repeat;
 }
 .image-3 {
   grid-area: img3;
@@ -230,7 +231,7 @@ body {
       rgba(53, 170, 255, 0.68) 11.615%,
       rgba(90, 136, 255, 0) 96.871%
     ),
-    url(../images/blog/003.png);
+    url(../../images/blog/03.png) center / contain no-repeat;
 }
 .blog-text h3 {
   color: rgb(61, 79, 159);
@@ -249,12 +250,44 @@ body {
   display: flex;
   justify-content: flex-start;
 }
-.buttons-getstarted {
+
+.blog__buttons {
+  width: 113px;
+  height: 43px;
+  background: rgb(210, 225, 255);
+}
+
+.blog__buttons a {
+  color: rgb(58, 121, 255);
 }
 
 /* media queries */
 
+@media screen and (max-width: 1024px) {
+  .blog-inner {
+    flex-direction: column;
+  }
+
+  .blog-gallery {
+    margin-right: 0;
+    margin-bottom: 67px;
+    justify-content: flex-start;
+  }
+}
+
 @media screen and (max-width: 645px) {
+  .features {
+    padding-block: 15px;
+  }
+
+  .title > p {
+    margin-bottom: 30px;
+  }
+
+  .cards {
+    flex-basis: min-content;
+    margin-bottom: 40px;
+  }
   .stats {
     background: linear-gradient(
       180deg,
@@ -287,5 +320,50 @@ body {
   .stats-left p:nth-child(3),
   .stats-right p:nth-child(3) {
     margin: 0 auto;
+  }
+
+  .blog {
+    padding-block: 20px;
+  }
+
+  .blog-inner {
+    padding-block: 20px;
+  }
+
+  .blog-gallery {
+    margin-bottom: 40px;
+  }
+
+  .blog-text h3 {
+    margin-bottom: 10px;
+  }
+
+  .blog-text p {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .blog-gallery {
+    grid-template-areas:
+      "img1 img1"
+      "img2 img3";
+
+    margin: 0 auto 67px;
+  }
+}
+
+@media screen and (max-width: 335px) {
+  .image-1,
+  .image-2,
+  .image-3 {
+    width: 200px;
+    height: 200px;
+  }
+  .blog-gallery {
+    grid-template-areas:
+      "img1"
+      "img2"
+      "img3";
   }
 }
